@@ -23,6 +23,18 @@ public class PrintListInReversedOrder {
 		}
 		return res;
 	}
+	
+	// 递归
+	public static ArrayList<Integer> reversePrintListRec(ListNode head) {
+		ArrayList<Integer> res = new ArrayList<Integer>();
+        if (head == null) {
+            return res;
+        } else {
+            reversePrintListRec(head.next);
+            res.add(head.val);
+        }
+        return res;
+    }
 
 	public static void main(String[] args) {
 		ListNode node1 = new ListNode(1);

@@ -1,5 +1,7 @@
 package com.list;
 
+import java.util.HashMap;
+
 //给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null
 //解法：
 //先利用快慢指针。若能相遇，说明存在环，且相遇点一定是在环上；若没有相遇，说明不存在环，返回 null。
@@ -14,7 +16,7 @@ public class EntryNodeInListLoop {
 		ListNode slow = pHead;
 		ListNode fast = pHead;
 		// 判断是否有环
-		while (slow != null && slow.next != null) {
+		while (fast != null && fast.next != null) {
 			slow = slow.next;
 			fast = fast.next.next;
 			if (slow == fast) {
@@ -26,23 +28,49 @@ public class EntryNodeInListLoop {
 		if (!flag) {
 			return null;
 		}
+		
+		// 方法一
+		// 现在，相遇点离环的开始处的距离等于链表头到环开始处的距离，
+        // 这样，我们把慢指针放在链表头，快指针保持在相遇点，然后同速度前进，再次相遇点就是环的开始处
+        slow = pHead;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return fast;
+        
+        // 方法二
 		// 计算环中节点个数
-		ListNode node = slow.next;
-		int count = 1;
-		while (node != slow) {
-			node = node.next;
-			count++;
+//		ListNode node = slow.next;
+//		int count = 1;
+//		while (node != slow) {
+//			node = node.next;
+//			count++;
+//		}
+//		// p1指针先走count步
+//		ListNode p1 = pHead;
+//		ListNode p2 = pHead;
+//		for (int i = 0; i < count; i++) {
+//			p1 = p1.next;
+//		}
+//		while (p1 != p2) {
+//			p1 = p1.next;
+//			p2 = p2.next;
+//		}
+//		return p1;
+	}
+	
+	// HashMap
+	public ListNode getFirstNodeInCycleHashMap(ListNode head) {
+		HashMap<ListNode, Boolean> map = new HashMap<ListNode, Boolean>();
+		while (head != null) {
+			if (map.get(head) == true) {
+				return head; // 这个地址之前已经出现过了，就是环的开始处
+			} else {
+				map.put(head, true);
+				head = head.next;
+			}
 		}
-		// p1指针先走count步
-		ListNode p1 = pHead;
-		ListNode p2 = pHead;
-		for (int i = 0; i < count; i++) {
-			p1 = p1.next;
-		}
-		while (p1 != p2) {
-			p1 = p1.next;
-			p2 = p2.next;
-		}
-		return p1;
+		return head;
 	}
 }

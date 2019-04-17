@@ -17,6 +17,7 @@ public class ConstructBinaryTree {
 
 	public TreeNode constructBinaryTree(int[] pre, int startPre, int endPre, int[] in, int startIn, int endIn) {
 		TreeNode node = new TreeNode(pre[startIn]);
+		// 只有一个节点
 		if (startPre == endPre) {
 			if (startIn == endIn) {
 				return node;
@@ -24,20 +25,23 @@ public class ConstructBinaryTree {
 			throw new IllegalArgumentException("Invalid input!");
 		}
 		int inOrder = startIn;
-		//寻找中序遍历中的根节点
+		// 寻找中序遍历中的根节点
 		while (in[inOrder] != pre[startPre]) {
 			inOrder++;
 			if (inOrder > endIn) {
 				throw new IllegalArgumentException("Invalid input!");
 			}
 		}
-		//左子树的长度
+		// 左子树的长度
 		int len = inOrder - startIn;
 		if (len > 0) {
+			// 构建左子树
 			constructBinaryTree(pre, startPre + 1, startPre + len, in, startIn, inOrder - 1);
 		}
 		if (inOrder < endIn) {
-			constructBinaryTree(pre, startPre + len + 1, endPre, in, inOrder + 1, endPre);
+//		if (len < endPre - startPre) {
+			// 构建右子树
+			node.right = constructBinaryTree(pre, startPre + len + 1, endPre, in, inOrder + 1, endIn);
 		}
 		return node;
 	}

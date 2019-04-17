@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class PrintTreeFromTopToBottom {
-	public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
+	public static ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
 		ArrayList<Integer> list = new ArrayList<>();
 		if (root == null) {
 			return list;
@@ -28,5 +28,25 @@ public class PrintTreeFromTopToBottom {
 			list.add(node.val);
 		}
 		return list;
+	}
+	
+	public static void main(String[] args) {
+		TreeNode r1 = new TreeNode(1);
+		TreeNode r2 = new TreeNode(2);
+		TreeNode r3 = new TreeNode(3);
+		TreeNode r4 = new TreeNode(4);
+		TreeNode r5 = new TreeNode(5);
+		TreeNode r6 = new TreeNode(6);
+
+		r1.left = r2;
+		r1.right = r3;
+		r2.left = r4;
+		r2.right = r5;
+		r3.right = r6;
+
+		ArrayList<Integer> list = PrintFromTopToBottom(r1);
+		for(int i = 0;i<list.size();i++) {
+			System.out.println(list.get(i));
+		}
 	}
 }

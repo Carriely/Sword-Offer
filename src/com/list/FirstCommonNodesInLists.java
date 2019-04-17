@@ -14,6 +14,7 @@ public class FirstCommonNodesInLists {
 		int n2 = len(head2);
 		ListNode p1 = head1;
 		ListNode p2 = head2;
+		// 略过较长链表多余的部分
 		if (n1 < n2) {
 			for (int i = 0; i < n2 - n1; i++) {
 				p2 = p2.next;
@@ -23,6 +24,7 @@ public class FirstCommonNodesInLists {
 				p1 = p1.next;
 			}
 		}
+		// 一起向后遍历，直到找到交点
 		while (p1 != p2 && p1 != null && p2 != null) {
 			p1 = p1.next;
 			p2 = p2.next;
