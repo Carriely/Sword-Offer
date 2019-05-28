@@ -6,7 +6,6 @@ package com.stringandarray;
 //若元素值等于 target，返回 true；
 //若元素值大于 target，砍掉这一列，即 --j；
 //若元素值小于 target，砍掉这一行，即 ++i。
-//ps:也可以从二维数组的左下方开始查找，以下代码使用左下方作为查找的起点。
 public class FindInPartiallySortedMatrix {
 	// 从二维数组的左下方开始查找
 	public boolean find(int target, int[][] array) {

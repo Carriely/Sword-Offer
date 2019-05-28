@@ -1,10 +1,8 @@
 package com.stringandarray;
-//输入 n 个整数，找出其中最小的 K 个数。
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.PriorityQueue;
-
+//输入 n 个整数，找出其中最小的 K 个数。
 public class KLeastNumbers {
 
 	// 解法一：
