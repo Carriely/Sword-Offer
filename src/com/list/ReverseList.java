@@ -3,6 +3,18 @@ package com.list;
 //***
 //输入一个链表，反转链表后，输出新链表的表头。
 public class ReverseList {
+	// 易于理解的遍历
+	public static ListNode reverseList2(ListNode head) {
+		ListNode result = null;
+		while (head != null) {
+			ListNode temp = head.next;// 将下一个节点存储起来用作遍历
+			head.next = result;// 将当前节点的指针指向前一个节点
+			result = head;// 将反转的list赋给result
+			head = temp;// head指针后移
+		}
+		return result;
+	}
+
 	// 解法一：遍历
 	// 从头到尾遍历原链表，每遍历一个结点，
 	// 将其摘下放在新链表的最前端。
@@ -13,7 +25,7 @@ public class ReverseList {
 			return head;
 		}
 
-		ListNode reHead = null; // 反转后新链表指针
+		ListNode reHead = null; // 反转后新链表头指针
 		ListNode cur = head;
 
 		while (cur != null) {// 当前节点不为空

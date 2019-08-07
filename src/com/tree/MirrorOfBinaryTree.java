@@ -8,7 +8,7 @@ public class MirrorOfBinaryTree {
 	// 将根结点的左右孩子互换，之后递归左右孩子。
 	public TreeNode mirrorRec(TreeNode root) {
 		if (root == null || !hasChild(root)) {
-			return null;
+			return root;
 		}
 		TreeNode node = root.left;
 		root.left = root.right;

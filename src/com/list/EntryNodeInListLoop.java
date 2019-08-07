@@ -1,6 +1,8 @@
 package com.list;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 //给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null
 //解法：
@@ -60,14 +62,14 @@ public class EntryNodeInListLoop {
 //		return p1;
 	}
 	
-	// HashMap
+	// 哈希表
 	public ListNode getFirstNodeInCycleHashMap(ListNode head) {
-		HashMap<ListNode, Boolean> map = new HashMap<ListNode, Boolean>();
+		Set<ListNode> set = new HashSet<ListNode>();
 		while (head != null) {
-			if (map.get(head) == true) {
+			if (set.contains(head)) {
 				return head; // 这个地址之前已经出现过了，就是环的开始处
 			} else {
-				map.put(head, true);
+				set.add(head);
 				head = head.next;
 			}
 		}

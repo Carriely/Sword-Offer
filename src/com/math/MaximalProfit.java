@@ -1,4 +1,4 @@
-package com.other;
+package com.math;
 
 //股票的最大利润
 //解法：
