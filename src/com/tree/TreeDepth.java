@@ -5,21 +5,23 @@ import java.util.LinkedList;
 //二叉树的深度
 public class TreeDepth {
 	/**
-	 * 求二叉树的深度（高度） 递归解法： O(n) （1）如果二叉树为空，二叉树的深度为0 （2）如果二叉树不为空，二叉树的深度 =
-	 * max(左子树深度，右子树深度) + 1
+	 * 求二叉树的深度（高度） 
+	 *  O(n) 
+	 * 递归解法：（1）如果二叉树为空，二叉树的深度为0 （2）如果二叉树不为空，二叉树的深度 = max(左子树深度，右子树深度) + 1
 	 */
 	public static int getDepthRec(TreeNode root) {
 		if (root == null) {
 			return 0;
 		}
-
 		int leftDepth = getDepthRec(root.left);
 		int rightDepth = getDepthRec(root.right);
 		return Math.max(leftDepth, rightDepth) + 1;
 	}
 
 	/**
-	 * 求二叉树的深度（高度） 迭代解法： O(n) 基本思想同LevelOrderTraversal，还是用一个Queue
+	 * 求二叉树的深度（高度） 
+	 *  O(n) 
+	 * 迭代解法：基本思想同LevelOrderTraversal，还是用一个Queue
 	 */
 	public static int getDepth(TreeNode root) {
 		if (root == null) {

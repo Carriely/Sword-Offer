@@ -1,5 +1,5 @@
 package com.tree;
-
+//***
 //输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。
 //分析：
 //在二叉树的前序遍历序列中，第一个数字总是根结点的值。
@@ -24,7 +24,7 @@ public class ConstructBinaryTree {
 			}
 			throw new IllegalArgumentException("Invalid input!");
 		}
-		int inOrder = startIn;
+		int inOrder = startIn; //用来计算左子树的长度
 		// 寻找中序遍历中的根节点
 		while (in[inOrder] != pre[startPre]) {
 			inOrder++;

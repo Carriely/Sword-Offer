@@ -19,7 +19,7 @@ public class PathInTree {
 		list.add(root.val);
 		target = target - root.val;
 		//满足条件，即加入res
-		if (target == 0 && root.left == null && root.right == null) {
+		if (target == 0 && root.left == null && root.right == null) {//叶节点
 			res.add(new ArrayList<>(list));
 		} else {
 			findPath(root.left, target, list);

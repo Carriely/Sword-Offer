@@ -17,7 +17,7 @@ public class GetLastCommonParent {
 
 		TreeNode commonInLeft = getLastCommonParentRec(root.left, n1, n2);
 		TreeNode commonInRight = getLastCommonParentRec(root.right, n1, n2);
-		// 如果一个左子树找到，一个在右子树找到，则说明root是唯一可能的最低公共祖先
+		// 如果一个在左子树找到，一个在右子树找到，则说明root是唯一可能的最低公共祖先
 		if (commonInLeft != null && commonInRight != null) {
 			return root;
 		}

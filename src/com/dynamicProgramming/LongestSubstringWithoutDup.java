@@ -1,7 +1,5 @@
 package com.dynamicProgramming;
 
-import java.awt.image.RescaleOp;
-
 //最长不含重复字符的子字符串
 //请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。假设字符串中只包含从 a 到 z的字符。
 //解法：

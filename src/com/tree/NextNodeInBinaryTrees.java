@@ -7,7 +7,7 @@ package com.tree;
 //如果它有右子树，则右子树的最左结点就是它的下一个结点；
 //如果它没有右子树，判断它与父结点 pNode.next 的位置情况：
 //   如果它是父结点的左孩子，那么父结点 pNode.next 就是它的下一个结点；
-//   如果它是父结点的右孩子，一直向上寻找，直到找到某个结点，它是它父结点的左孩子，那么该父结点就是 pNode 的下一个结点。
+//   如果它是父结点的右孩子，一直向上寻找，直到找到某个结点，它是父结点的左孩子，那么该结点的父结点就是 pNode 的下一个结点。
 
 public class NextNodeInBinaryTrees {
 	public TreeLinkNode GetNext(TreeLinkNode pNode) {
@@ -24,12 +24,12 @@ public class NextNodeInBinaryTrees {
 		}
 		// 如果没有右子树
 		// 它是父结点的左孩子
-		if (pNode.next != null && pNode.next.left != null) {
+		if (pNode.next != null && pNode.next.left == pNode) {
 			return pNode.next;
 		}
 		// 它是父结点的右孩子
 		while (pNode.next != null) {
-			if (pNode.next.left != null) {
+			if (pNode.next.left == pNode) {
 				return pNode.next;
 			}
 			pNode = pNode.next;
