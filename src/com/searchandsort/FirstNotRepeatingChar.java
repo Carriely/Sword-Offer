@@ -1,4 +1,4 @@
-package com.list;
+package com.searchandsort;
 
 import java.util.HashMap;
 

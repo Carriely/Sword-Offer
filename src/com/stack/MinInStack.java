@@ -14,6 +14,7 @@ public class MinInStack {
 	private Stack<Integer> stack2 = new Stack<>();
 
 	public void push(int node) {
+		stack1.push(node);
 		if (stack2 != null && stack2.peek() >= node) {
 			stack2.push(node);
 		} else {

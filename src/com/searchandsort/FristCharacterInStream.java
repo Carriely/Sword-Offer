@@ -1,4 +1,4 @@
-package com.list;
+package com.searchandsort;
 //字符流中第一个不重复的字符
 
 //使用HashMap来统计字符出现的次数

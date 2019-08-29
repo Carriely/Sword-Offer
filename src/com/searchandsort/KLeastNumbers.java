@@ -1,11 +1,14 @@
-package com.stringandarray;
+package com.searchandsort;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.PriorityQueue;
+
 //输入 n 个整数，找出其中最小的 K 个数。
 public class KLeastNumbers {
 
 	// 解法一：
+	// ***
 	// 利用快排中的 partition 思想。
 	// 判断选中数字的下标 index：
 	// 如果 index = k-1，结束循环，返回前 k 个数。
@@ -17,11 +20,33 @@ public class KLeastNumbers {
 		if (input == null || input.length == 0 || input.length < k || k < 0) {
 			return res;
 		}
+		int start = 0;
+		int end = input.length - 1;
+		int index = partition(input, start, end);
+		while (index != k - 1) {
+			if (index > k - 1) {
+				end = index - 1;
+			} else {
+				start = index + 1;
+			}
+			index = partition(input, start, end);
+		}
+		for (int i = 0; i < k; i++) {
+			res.add(input[i]);
+		}
 		return res;
 	}
 
 	public static int partition(int[] input, int start, int end) {
-		int index = 0;
+		int index = start - 1;
+		for (int i = start; i < end; i++) {
+			if (input[i] < input[end]) {
+				swap(input, i, ++index);
+			}
+		}
+		index++;
+		swap(input, index, end);
+		;
 		return index;
 
 	}
@@ -47,7 +72,7 @@ public class KLeastNumbers {
 			if (maxHeap.size() < k) {
 				maxHeap.add(i);
 			} else {
-				if (maxHeap.peek() > i) {
+				if (i < maxHeap.peek()) {
 					maxHeap.poll();
 					maxHeap.add(i);
 				}
@@ -56,7 +81,7 @@ public class KLeastNumbers {
 		res.addAll(maxHeap);
 		return res;
 	}
-	
+
 	public static void main(String[] args) {
 		int[] array = { 3, 7, 4, 8, 23, 56, 77, 89, 46, 11, 66, 77 };
 		ArrayList<Integer> res = GetLeastNumbers_2(array, 4);

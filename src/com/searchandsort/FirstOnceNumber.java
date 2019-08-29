@@ -3,7 +3,7 @@ package com.searchandsort;
 import java.util.LinkedHashMap;
 
 //在字符串中找出第一个只出现一次的字符。
-//采用哈希表,key是字母，value是字母出现的次数
+//采用哈希表,key是字母,value是字母出现的次数
 public class FirstOnceNumber {
 	public static Character firstOnceNumber(String str) {
 		if (str == null) {
