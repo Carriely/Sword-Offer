@@ -2,7 +2,7 @@ package com.list;
 
 //输入一个链表，输出该链表中倒数第k个结点。
 //简单解法：遍历两次，第一次计算节点个数，第二次从头开始走n-k+1步
-//推荐解法：pre 指针走 k-1 步。之后 cur 指针指向 phead，然后两个指针同时走，直至 pre 指针到达尾结点。
+//推荐解法：pre 指针走 k-1 步。之后 cur 指针指向 head，然后两个指针同时走，直至 pre 指针到达尾结点。
 //注意特殊情况：比如k 的值小于 1 或者大于链表长度。
 public class KthNodeFromEnd {
 	public static ListNode FindKthToTail(ListNode head, int k) {

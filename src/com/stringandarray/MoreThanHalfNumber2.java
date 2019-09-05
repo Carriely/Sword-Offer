@@ -29,7 +29,7 @@ public class MoreThanHalfNumber2 {
 		return isMoreThanHalf(array, res) ? res : 0;
 	}
 
-	// 判断val元素是否真的超过数组元素个数的一半
+	// 判断val元素是否真的超过数组元素个数的一半（检验输入的数组是否有效）
 	public static boolean isMoreThanHalf(int[] array, int val) {
 		int count = 0;
 		for (int i : array) {

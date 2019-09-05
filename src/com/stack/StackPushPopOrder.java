@@ -18,23 +18,13 @@ public class StackPushPopOrder {
 		}
 
 		Stack<Integer> stack = new Stack<>();
-		int i = 0;
-		// 判断循环终止的布尔值
-		boolean flag = false;
-		for (int val : popA) {
-			// 不在栈顶
-			while (stack.isEmpty() || stack.peek() != val) {
-				if (i >= popA.length) {
-					flag = true;
-					break;
-				}
-				stack.push(pushA[i++]);
+		int j = 0;
+		for (int i = 0; i < pushA.length; i++) {
+			while (!stack.empty() && stack.peek() == popA[j]) {
+				stack.pop();
+				j++;// 出栈序下标往后移动
 			}
-			if (flag) {
-				break;
-			}
-			// 栈顶元素，直接弹出
-			stack.pop();
+			stack.push(pushA[i]);
 		}
 		return stack.isEmpty();
 	}

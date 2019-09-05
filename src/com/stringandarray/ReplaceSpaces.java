@@ -17,7 +17,7 @@ public class ReplaceSpaces {
 			//将char数组转为string
 			return String.valueOf(charArray);
 		}
-		System.out.println("count---" + count);
+//		System.out.println("count---" + count);
 		char[] temp = new char[n + 2 * count];
 		int j = n + 2 * count - 1;
 		int i = n - 1;

@@ -1,4 +1,4 @@
-package com.other;
+package com.stringandarray;
 
 //机器人的移动范围（回溯）
 //解法：

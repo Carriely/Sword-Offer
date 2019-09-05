@@ -11,7 +11,7 @@ public class StreamMedian {
 	private PriorityQueue<Integer> minHeap = new PriorityQueue<>(Comparator.reverseOrder());
 	private PriorityQueue<Integer> maxHeap = new PriorityQueue<>();
 
-	public void insert(Integer number) {
+	public void insert(Integer number) { 
 		if (maxHeap.isEmpty() || number < maxHeap.peek()) {
 			maxHeap.offer(number);
 			if (maxHeap.size() - minHeap.size() > 1) {

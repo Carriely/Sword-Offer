@@ -1,6 +1,6 @@
-package com.stringandarray;
+package com.searchandsort;
 
-// 二维数组中的查找
+//二维数组中的查找
 //解法：
 //从二维数组的右上方开始查找：
 //若元素值等于 target，返回 true；
@@ -39,7 +39,7 @@ public class FindInPartiallySortedMatrix {
 		int columns = array[0].length;
 
 		int i = 0;
-		int j = columns;
+		int j = columns - 1;
 		while (i < row && j >= 0) {
 			if (array[i][j] == target) {
 				return true;

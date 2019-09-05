@@ -5,14 +5,18 @@ package com.list;
 public class ReverseList {
 	// 易于理解的遍历
 	public static ListNode reverseList2(ListNode head) {
-		ListNode result = null;
-		while (head != null) {
-			ListNode temp = head.next;// 将下一个节点存储起来用作遍历
-			head.next = result;// 将当前节点的指针指向前一个节点
-			result = head;// 将反转的list赋给result
-			head = temp;// head指针后移
+		if (head == null || head.next == null) {
+			return head;
 		}
-		return result;
+		
+		ListNode newHead = null;
+		while (head != null) {
+			ListNode next = head.next;// 将下一个节点存储起来用作遍历
+			head.next = newHead;// 将当前节点的指针指向前一个节点
+			newHead = head;// 将反转的list赋给newHead
+			head = next;// head指针后移
+		}
+		return newHead;
 	}
 
 	// 解法一：遍历
@@ -59,7 +63,8 @@ public class ReverseList {
 		node2.setNext(node3);
 		node3.setNext(node4);
 		node4.setNext(node5);
-		ListNode newhead = reverseList(null);
+//		ListNode newhead = reverseList(node1);
+		ListNode newhead = reverseListRec(node1);
 		ListNode temp = newhead;
 		while (temp != null) {
 			System.out.println(temp.val);

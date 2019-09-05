@@ -8,9 +8,10 @@ public class ConstructBinaryTree2 {
 	int pre_idx = 0;
 	int[] preorder;
 	int[] inorder;
+	// 用一个hashmap存放树节点
 	HashMap<Integer, Integer> idx_map = new HashMap<Integer, Integer>();
 
-	public TreeNode helper(int in_left, int in_right) {
+	private TreeNode helper(int in_left, int in_right) {
 		if (in_left == in_right)
 			return null;
 
@@ -34,7 +35,6 @@ public class ConstructBinaryTree2 {
 		this.preorder = preorder;
 		this.inorder = inorder;
 
-		// 用一个hashmap存放树节点
 		int idx = 0;
 		for (Integer val : inorder)
 			idx_map.put(val, idx++);

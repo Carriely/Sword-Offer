@@ -13,17 +13,16 @@ public class ReorderArray {
 		int left = 0;
 		int right = array.length - 1;
 		while (left < right) {
-			while (left < right && !isEven(array[left])) {
+			while (!isEven(array[left])) {
 				left++;
 			}
-			while (left < right && isEven(array[right])) {
+			while (isEven(array[right])) {
 				right--;
 			}
-			if (left < right) {
-				int temp = array[right];
-				array[right] = array[left];
-				array[left] = temp;
-			}
+			int temp = array[right];
+			array[right] = array[left];
+			array[left] = temp;
+			
 			if (left >= right) {
 				break;
 			}
@@ -38,7 +37,7 @@ public class ReorderArray {
 		}
 	}
 
-	// 解法二：统计数组中奇数的个数,借助一个同样大小的一个数组空间（可以保证奇数和奇数，偶数和偶数之间的相对位置不变）
+	// 解法二：统计数组中奇数的个数，借助一个同样大小的一个数组空间（可以保证奇数和奇数，偶数和偶数之间的相对位置不变）
 	public static void reOrderArray(int[] array) {
 		if (array == null && array.length < 2) {
 			return;
@@ -63,8 +62,8 @@ public class ReorderArray {
 
 	public static void main(String[] args) {
 		int[] array = { 3, 7, 4, 8, 23, 56, 77, 89, 46, 11, 66, 77 };
-		//mysort(array);
-		reOrderArray(array);
+		mysort(array);
+		//reOrderArray(array);
 		for (int a : array) {
 			System.out.println(" " + a);
 		}
