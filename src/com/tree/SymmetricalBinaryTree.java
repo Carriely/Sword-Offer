@@ -9,7 +9,7 @@ public class SymmetricalBinaryTree {
 	}
 
 	private boolean isSymmetrical(TreeNode root1, TreeNode root2) {
-		if (root1 == null & root2 == null) {
+		if (root1 == null && root2 == null) {
 			return true;
 		}
 		if (root1 == null || root2 == null) {

@@ -1,6 +1,7 @@
 package com.tree;
 
 //判断整数数组是不是某二叉搜索树的后序遍历序列
+//后序遍历：左子树，右子树，根节点
 //解法：
 //序列的最后一个元素是二叉搜索树的根节点。
 //在序列中从左到右找到根节点的左子树(比根节点小)、右子树(比根节点大)。
@@ -33,6 +34,6 @@ public class SquenceOfBST {
 			}
 		}
 		//递归判断左子树和右子树
-		return verity(sequence, start, i - 1) && verity(sequence, i, end - 1);//后序遍历：左子树，右子树，根节点
+		return verity(sequence, start, i - 1) && verity(sequence, i, end - 1);
 	}
 }

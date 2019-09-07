@@ -8,7 +8,7 @@ public class ConstructBinaryTree2 {
 	int pre_idx = 0;
 	int[] preorder;
 	int[] inorder;
-	// 用一个hashmap存放树节点
+	// 用一个hashmap存放中序遍历的树节点
 	HashMap<Integer, Integer> idx_map = new HashMap<Integer, Integer>();
 
 	private TreeNode helper(int in_left, int in_right) {

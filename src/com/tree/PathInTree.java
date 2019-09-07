@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 //二叉树中和为某一值的路径
 public class PathInTree {
-	// 解法一
+	// 解法一（回溯）
 	private ArrayList<ArrayList<Integer>> res = new ArrayList<>();
 
 	public ArrayList<ArrayList<Integer>> findPath(TreeNode root, int target) {
